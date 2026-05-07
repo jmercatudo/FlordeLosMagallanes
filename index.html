@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panadería Flor de Los Magallanes — Trabajamos cada día por una mejor Venezuela · Desde 1999</title>
+<meta name="description" content="Panadería en Valencia, Venezuela. Almuerzos, dulces, pizzas, golfeados, tortas y catering corporativo. Delivery a domicilio. Desde 1999.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF6EC;
+  --cream-2:#F5ECD8;
+  --yellow:#F4D78A;
+  --yellow-soft:#FBE8B0;
+  --yellow-deep:#E8B547;
+  --brown:#5A3A1F;
+  --brown-2:#7A4F2C;
+  --brown-soft:#A8784A;
+  --brown-ink:#3A2412;
+  --gold:#C9933A;
+  --white:#FFFEFB;
+  --shadow-sm:0 2px 8px rgba(90,58,31,.08);
+  --shadow-md:0 8px 28px rgba(90,58,31,.12);
+  --shadow-lg:0 18px 60px rgba(90,58,31,.18);
+  --radius:18px;
+  --radius-sm:12px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--brown-ink);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--cream-2)}
+::-webkit-scrollbar-thumb{background:var(--brown-soft);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:var(--brown-2)}
+
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .35s ease;
+}
+.nav.scrolled{
+  background:rgba(251,246,236,.85);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:var(--shadow-sm);
+  padding:14px 32px;
+}
+.nav-brand{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;color:var(--brown);
+  letter-spacing:-.01em;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-brand-mark{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--yellow-deep) 0%,var(--gold) 100%);
+  display:grid;place-items:center;color:var(--white);
+  font-family:'Caveat',cursive;font-size:24px;font-weight:700;
+  box-shadow:0 4px 12px rgba(201,147,58,.4);
+}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{
+  font-size:14px;font-weight:500;color:var(--brown-2);
+  transition:color .25s;letter-spacing:.01em;
+}
+.nav-links a:hover{color:var(--brown)}
+.nav-cta{
+  background:var(--brown);color:var(--cream);
+  padding:10px 22px;border-radius:999px;
+  font-size:13px;font-weight:600;letter-spacing:.02em;
+  transition:transform .25s,box-shadow .25s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(90,58,31,.25)}
+.nav-toggle{display:none;font-size:24px;color:var(--brown)}
+
+@media (max-width:880px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav{padding:14px 20px}
+  .nav.scrolled{padding:12px 20px}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  padding:120px 24px 80px;
+  background:
+    radial-gradient(ellipse at top right,var(--yellow-soft) 0%,transparent 55%),
+    radial-gradient(ellipse at bottom left,#F1DEB6 0%,transparent 55%),
+    var(--cream);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background-image:
+    radial-gradient(circle at 15% 20%,rgba(232,181,71,.08) 0,transparent 12%),
+    radial-gradient(circle at 85% 70%,rgba(122,79,44,.05) 0,transparent 14%),
+    radial-gradient(circle at 50% 90%,rgba(232,181,71,.06) 0,transparent 10%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-text{opacity:0;transform:translateY(30px);transition:all 1s cubic-bezier(.2,.8,.2,1)}
+.hero-text.in{opacity:1;transform:none}
+.hero-tag{
+  display:inline-block;
+  font-family:'Caveat',cursive;font-size:24px;color:var(--gold);
+  margin-bottom:14px;font-weight:600;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,5.4vw,62px);font-weight:700;
+  line-height:1.05;color:var(--brown-ink);letter-spacing:-.02em;
+  margin-bottom:22px;
+}
+.hero-title em{
+  font-style:italic;color:var(--gold);font-weight:600;
+}
+.hero-sub{
+  font-size:17px;color:var(--brown-2);max-width:520px;
+  margin-bottom:30px;line-height:1.7;
+}
+.hero-stat-line{
+  display:flex;align-items:center;gap:12px;margin-bottom:30px;
+  font-size:14px;color:var(--brown-soft);font-weight:500;
+}
+.hero-stat-line strong{color:var(--brown);font-weight:700}
+.hero-stat-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--brown);color:var(--cream);
+  padding:16px 30px;border-radius:999px;
+  font-weight:600;font-size:15px;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:transform .25s,box-shadow .25s;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(90,58,31,.3)}
+.btn-secondary{
+  background:var(--white);color:var(--brown);
+  padding:16px 28px;border-radius:999px;
+  font-weight:600;font-size:15px;
+  border:1.5px solid var(--brown);
+  transition:all .25s;
+}
+.btn-secondary:hover{background:var(--brown);color:var(--cream)}
+
+/* IG Card */
+.ig-card-wrap{
+  opacity:0;transform:translateY(30px);transition:all 1s cubic-bezier(.2,.8,.2,1) .15s;
+  perspective:1200px;
+}
+.ig-card-wrap.in{opacity:1;transform:none}
+.ig-card{
+  background:var(--white);border-radius:24px;
+  padding:30px 28px 24px;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+  border:1px solid rgba(232,181,71,.18);
+}
+.ig-card::before{
+  content:'';position:absolute;top:-1px;left:24px;right:24px;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--yellow-deep),var(--gold),transparent);
+  border-radius:3px;
+}
+.ig-card-top{
+  display:flex;align-items:flex-start;gap:22px;margin-bottom:22px;
+}
+.ig-avatar{
+  position:relative;flex-shrink:0;
+  width:96px;height:96px;border-radius:50%;
+  padding:3px;
+  background:conic-gradient(from 0deg,#feda77,#f58529,#dd2a7b,#8134af,#515bd4,#feda77);
+  animation:spin 8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ig-avatar-inner{
+  width:100%;height:100%;border-radius:50%;
+  background:var(--white);
+  padding:3px;
+  position:relative;overflow:hidden;
+  animation:spin 8s linear infinite reverse;
+}
+.ig-avatar-img{
+  width:100%;height:100%;border-radius:50%;
+  background:#F4D78A;
+  display:grid;place-items:center;overflow:hidden;
+  color:var(--white);font-family:'Playfair Display',serif;
+  font-size:28px;font-weight:700;
+  background-size:cover;background-position:center;
+}
+.ig-avatar-img svg{width:100%;height:100%}
+.ig-stats{display:flex;gap:22px;flex:1;padding-top:18px}
+.ig-stat{text-align:center}
+.ig-stat-num{
+  display:block;font-family:'Inter',sans-serif;
+  font-weight:700;font-size:22px;color:var(--brown-ink);line-height:1;
+}
+.ig-stat-label{
+  font-size:12px;color:var(--brown-soft);
+  text-transform:lowercase;margin-top:4px;
+}
+.ig-name-row{
+  display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;
+}
+.ig-name{
+  font-family:'Inter',sans-serif;font-weight:600;
+  font-size:18px;color:var(--brown-ink);
+}
+.ig-verified{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,#3897f0 0%,#1d7dd9 100%);
+  display:grid;place-items:center;
+  box-shadow:0 2px 6px rgba(56,151,240,.4);
+}
+.ig-verified svg{width:11px;height:11px;color:white}
+.ig-handle{
+  display:inline-block;font-size:14px;color:var(--gold);
+  font-weight:500;margin-bottom:10px;
+}
+.ig-handle:hover{text-decoration:underline}
+.ig-category{
+  font-size:13px;color:var(--brown-soft);font-weight:500;margin-bottom:10px;
+}
+.ig-bio{
+  font-size:14.5px;line-height:1.55;color:var(--brown-ink);
+  margin-bottom:18px;
+}
+.ig-bio em{font-family:'Caveat',cursive;font-style:normal;font-size:18px;color:var(--gold)}
+.ig-actions{display:flex;gap:8px;margin-bottom:22px}
+.ig-btn{
+  flex:1;padding:9px 14px;border-radius:10px;
+  background:var(--cream-2);color:var(--brown-ink);
+  font-size:13px;font-weight:600;text-align:center;
+  transition:all .2s;border:1px solid transparent;
+}
+.ig-btn:hover{background:var(--yellow-soft);border-color:var(--gold)}
+.ig-btn-primary{background:var(--brown);color:var(--cream)}
+.ig-btn-primary:hover{background:var(--brown-2);border-color:transparent;color:var(--cream)}
+.ig-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
+  border-top:1px solid var(--cream-2);padding-top:18px;
+}
+.ig-grid-item{
+  aspect-ratio:1/1;border-radius:6px;overflow:hidden;
+  position:relative;background:var(--cream-2);
+  cursor:pointer;transition:transform .35s;
+}
+.ig-grid-item:hover{transform:scale(1.03)}
+.ig-grid-item img{width:100%;height:100%;object-fit:cover}
+.ig-grid-placeholder{
+  width:100%;height:100%;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--yellow-soft) 0%,var(--cream-2) 100%);
+}
+.ig-grid-placeholder svg{width:38%;height:38%;color:var(--brown-soft);opacity:.55}
+
+@media (max-width:880px){
+  .hero-inner{grid-template-columns:1fr;gap:50px}
+  .ig-card{padding:24px 20px 20px}
+  .ig-card-top{gap:16px}
+  .ig-avatar{width:80px;height:80px}
+  .ig-stats{gap:14px;padding-top:8px}
+  .ig-stat-num{font-size:18px}
+}
+
+/* ---------- SECTIONS BASE ---------- */
+section{padding:110px 24px;position:relative}
+.container{max-width:1180px;margin:0 auto}
+.section-tag{
+  display:inline-block;
+  font-family:'Caveat',cursive;font-size:24px;color:var(--gold);
+  margin-bottom:10px;font-weight:600;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,48px);font-weight:700;
+  color:var(--brown-ink);letter-spacing:-.02em;line-height:1.1;
+  margin-bottom:18px;
+}
+.section-title em{font-style:italic;color:var(--gold);font-weight:600}
+.section-sub{
+  font-size:17px;color:var(--brown-2);max-width:640px;
+  line-height:1.7;
+}
+.section-head{margin-bottom:60px;max-width:760px}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{
+  aspect-ratio:4/5;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--yellow-soft) 0%,var(--brown-soft) 100%);
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+.about-img-inner{
+  position:absolute;inset:0;
+  display:grid;place-items:center;
+}
+.about-img-inner svg{width:55%;height:55%;color:rgba(255,254,251,.55)}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-decor{
+  position:absolute;
+  font-family:'Caveat',cursive;font-size:48px;color:var(--cream);
+  text-align:center;line-height:1;
+}
+.about-text h3{
+  font-family:'Playfair Display',serif;
+  font-size:22px;color:var(--brown);font-weight:600;
+  margin:30px 0 12px;
+}
+.about-text p{
+  font-size:16px;color:var(--brown-2);line-height:1.75;
+  margin-bottom:18px;
+}
+.about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pill{
+  background:var(--white);color:var(--brown);
+  padding:8px 18px;border-radius:999px;
+  font-size:13px;font-weight:500;
+  border:1px solid var(--cream-2);
+  box-shadow:var(--shadow-sm);
+}
+@media (max-width:880px){
+  .about-grid{grid-template-columns:1fr;gap:50px}
+}
+
+/* ---------- PRODUCTS ---------- */
+.products{
+  background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%);
+  position:relative;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+}
+.product{
+  background:var(--white);border-radius:var(--radius);
+  padding:36px 30px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .35s,box-shadow .35s;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(122,79,44,.06);
+}
+.product::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--yellow-deep),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.product:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.product:hover::after{transform:scaleX(1)}
+.product-icon{
+  width:62px;height:62px;border-radius:14px;
+  background:linear-gradient(135deg,var(--yellow-soft) 0%,var(--yellow) 100%);
+  display:grid;place-items:center;
+  margin-bottom:22px;color:var(--brown);
+}
+.product-icon svg{width:30px;height:30px}
+.product h3{
+  font-family:'Playfair Display',serif;
+  font-size:22px;color:var(--brown-ink);font-weight:600;
+  margin-bottom:10px;
+}
+.product p{
+  font-size:15px;color:var(--brown-2);line-height:1.65;
+}
+.product-tag{
+  display:inline-block;margin-top:18px;
+  font-size:12px;color:var(--gold);font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;
+}
+@media (max-width:880px){
+  .products-grid{grid-template-columns:1fr}
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{background:var(--brown-ink);color:var(--cream)}
+.gallery .section-title{color:var(--cream)}
+.gallery .section-tag{color:var(--yellow-deep)}
+.gallery .section-sub{color:rgba(251,246,236,.7)}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.gallery-item{
+  aspect-ratio:1/1;border-radius:var(--radius-sm);
+  overflow:hidden;position:relative;cursor:pointer;
+  background:var(--brown-2);transition:transform .5s;
+}
+.gallery-item:nth-child(3n+1){aspect-ratio:1/1}
+.gallery-item:nth-child(5){grid-column:span 2;grid-row:span 2;aspect-ratio:1/1}
+.gallery-item:hover{transform:scale(1.02)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-placeholder{
+  width:100%;height:100%;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--brown-2) 0%,var(--brown) 100%);
+}
+.gallery-placeholder svg{width:34%;height:34%;color:rgba(251,246,236,.18)}
+.gallery-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(58,36,18,.55) 0%,transparent 50%);
+  opacity:0;transition:opacity .35s;
+}
+.gallery-item:hover .gallery-overlay{opacity:1}
+@media (max-width:880px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item:nth-child(5){grid-column:span 2;grid-row:auto}
+}
+
+/* ---------- METRICS ---------- */
+.metrics{
+  background:var(--white);
+  padding:80px 24px;
+}
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  text-align:center;
+}
+.metric{padding:20px}
+.metric-num{
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(40px,5.5vw,56px);color:var(--brown);
+  line-height:1;display:block;
+}
+.metric-num em{font-style:italic;color:var(--gold)}
+.metric-label{
+  margin-top:10px;font-size:14px;color:var(--brown-2);
+  font-weight:500;text-transform:uppercase;letter-spacing:.08em;
+}
+@media (max-width:880px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- CONTACT / WHATSAPP ---------- */
+.contact{
+  background:linear-gradient(135deg,var(--brown) 0%,var(--brown-ink) 100%);
+  color:var(--cream);position:relative;overflow:hidden;
+}
+.contact::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,181,71,.18) 0%,transparent 70%);
+}
+.contact::after{
+  content:'';position:absolute;
+  bottom:-150px;left:-100px;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,181,71,.1) 0%,transparent 70%);
+}
+.contact .container{position:relative;z-index:1}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.contact .section-tag{color:var(--yellow-deep)}
+.contact .section-title{color:var(--cream)}
+.contact .section-title em{color:var(--yellow-deep)}
+.contact-text p{
+  font-size:17px;color:rgba(251,246,236,.78);line-height:1.7;
+  margin-bottom:30px;max-width:480px;
+}
+.contact-card{
+  background:rgba(255,254,251,.06);
+  border:1px solid rgba(232,181,71,.25);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-radius:var(--radius);
+  padding:40px;
+}
+.contact-row{
+  display:flex;align-items:center;gap:18px;
+  padding:18px 0;border-bottom:1px solid rgba(232,181,71,.15);
+}
+.contact-row:last-child{border-bottom:none}
+.contact-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,var(--yellow-deep) 0%,var(--gold) 100%);
+  display:grid;place-items:center;flex-shrink:0;
+  color:var(--brown-ink);
+}
+.contact-icon svg{width:22px;height:22px}
+.contact-info-label{
+  font-size:12px;color:rgba(251,246,236,.55);
+  text-transform:uppercase;letter-spacing:.1em;font-weight:600;
+}
+.contact-info-value{
+  font-size:16px;color:var(--cream);font-weight:500;margin-top:4px;
+  display:block;
+}
+.contact-info-value:hover{color:var(--yellow-deep)}
+.whatsapp-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#25D366;color:white;
+  padding:18px 32px;border-radius:999px;
+  font-weight:600;font-size:16px;
+  margin-top:20px;
+  transition:transform .25s,box-shadow .25s;
+}
+.whatsapp-cta:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(37,211,102,.4)}
+.whatsapp-cta svg{width:22px;height:22px}
+@media (max-width:880px){
+  .contact-grid{grid-template-columns:1fr;gap:50px}
+  .contact-card{padding:30px 24px}
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:var(--brown-ink);color:rgba(251,246,236,.6);
+  padding:50px 24px 30px;text-align:center;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;font-size:24px;
+  color:var(--cream);font-weight:700;margin-bottom:8px;
+}
+.footer-tag{
+  font-family:'Caveat',cursive;font-size:22px;color:var(--gold);
+  margin-bottom:24px;
+}
+.footer-socials{
+  display:flex;justify-content:center;gap:16px;margin-bottom:30px;
+}
+.footer-social{
+  width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,254,251,.06);
+  color:var(--cream);transition:all .25s;
+  border:1px solid rgba(232,181,71,.18);
+}
+.footer-social:hover{
+  background:var(--gold);color:var(--brown-ink);
+  transform:translateY(-3px);
+}
+.footer-social svg{width:18px;height:18px}
+.footer-copy{font-size:13px;color:rgba(251,246,236,.4)}
+
+/* WhatsApp floating button */
+.wa-float{
+  position:fixed;right:24px;bottom:24px;z-index:99;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;
+  display:grid;place-items:center;
+  box-shadow:0 10px 30px rgba(37,211,102,.4);
+  transition:transform .25s;
+}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;color:white}
+.wa-float::before{
+  content:'';position:absolute;inset:-5px;border-radius:50%;
+  border:2px solid rgba(37,211,102,.5);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(1.3);opacity:0}
+}
+
+/* Stagger animation */
+.stagger>*{
+  opacity:0;transform:translateY(30px);
+  transition:all .7s cubic-bezier(.2,.8,.2,1);
+}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:.05s}
+.stagger.in>*:nth-child(2){transition-delay:.12s}
+.stagger.in>*:nth-child(3){transition-delay:.19s}
+.stagger.in>*:nth-child(4){transition-delay:.26s}
+.stagger.in>*:nth-child(5){transition-delay:.33s}
+.stagger.in>*:nth-child(6){transition-delay:.40s}
+.stagger.in>*:nth-child(7){transition-delay:.47s}
+.stagger.in>*:nth-child(8){transition-delay:.54s}
+.stagger.in>*:nth-child(9){transition-delay:.61s}
+
+/* Parallax decorative elements */
+.parallax-bg{
+  position:absolute;pointer-events:none;
+  font-family:'Playfair Display',serif;
+  font-size:280px;font-weight:800;font-style:italic;
+  color:rgba(232,181,71,.06);
+  user-select:none;line-height:.8;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-mark">F</span>
+    Flor de los Magallanes
+  </a>
+  <div class="nav-links">
+    <a href="#sobre">Sobre nosotros</a>
+    <a href="#productos">Productos</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://wa.me/584244298958" target="_blank" rel="noopener" class="nav-cta">Pide por WhatsApp</a>
+  </div>
+  <button class="nav-toggle" aria-label="Menú">☰</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-text">
+      <span class="hero-tag">Valencia · Desde 1999</span>
+      <h1 class="hero-title">
+        Trabajamos cada día<br>
+        por una <em>mejor Venezuela</em>
+      </h1>
+      <p class="hero-sub">
+        Más de 26 años horneando en Valencia. Almuerzos, panes, dulces, pizzas, tortas y catering corporativo. Atención directa por WhatsApp y delivery a tu casa.
+      </p>
+      <div class="hero-stat-line">
+        <span class="hero-stat-dot"></span>
+        <span><strong>10.400+</strong> seguidores en Instagram</span>
+        <span class="hero-stat-dot"></span>
+        <span><strong>2.291</strong> publicaciones</span>
+        <span class="hero-stat-dot"></span>
+        <span>Valencia, VE</span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/584244298958" target="_blank" rel="noopener" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Pide por WhatsApp
+        </a>
+        <a href="#productos" class="btn-secondary">Ver productos</a>
+      </div>
+    </div>
+
+    <div class="ig-card-wrap">
+      <div class="ig-card">
+        <div class="ig-card-top">
+          <div class="ig-avatar">
+            <div class="ig-avatar-inner">
+              <div class="ig-avatar-img" id="avatar-img">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Flor de Los Magallanes">
+                  <defs>
+                    <radialGradient id="bgGrad" cx="50%" cy="45%" r="65%">
+                      <stop offset="0%" stop-color="#FBE8B0"/>
+                      <stop offset="100%" stop-color="#F0CC72"/>
+                    </radialGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="100" fill="url(#bgGrad)"/>
+                  <g fill="#3A2412">
+                    <path d="M70 55 C58 60 55 78 65 88 C72 95 88 95 96 88 C92 84 90 78 92 72 C82 70 75 64 70 55 Z" opacity=".95"/>
+                    <path d="M85 60 C88 70 95 78 108 80 C115 72 117 62 113 52 C103 50 92 53 85 60 Z" opacity=".9"/>
+                    <path d="M70 90 C75 96 84 100 95 100 C100 95 102 88 100 81 C90 84 78 88 70 90 Z" opacity=".85"/>
+                    <ellipse cx="125" cy="62" rx="3" ry="6" transform="rotate(25 125 62)"/>
+                    <ellipse cx="132" cy="58" rx="3" ry="6" transform="rotate(25 132 58)"/>
+                    <ellipse cx="139" cy="54" rx="3" ry="6" transform="rotate(25 139 54)"/>
+                    <ellipse cx="128" cy="72" rx="3" ry="6" transform="rotate(25 128 72)"/>
+                    <ellipse cx="135" cy="68" rx="3" ry="6" transform="rotate(25 135 68)"/>
+                    <line x1="118" y1="80" x2="148" y2="46" stroke="#3A2412" stroke-width="2.4" stroke-linecap="round"/>
+                  </g>
+                  <line x1="38" y1="128" x2="162" y2="128" stroke="#3A2412" stroke-width="2.5" stroke-linecap="round"/>
+                  <text x="100" y="150" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="800" font-size="17" fill="#3A2412" text-anchor="middle" letter-spacing="1.4">FLOR DE</text>
+                  <text x="100" y="173" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="800" font-size="17" fill="#3A2412" text-anchor="middle" letter-spacing="1.4">LOS MAGALLANES</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="ig-stats">
+            <div class="ig-stat">
+              <span class="ig-stat-num">2.291</span>
+              <span class="ig-stat-label">publicaciones</span>
+            </div>
+            <div class="ig-stat">
+              <span class="ig-stat-num">10,4 mil</span>
+              <span class="ig-stat-label">seguidores</span>
+            </div>
+            <div class="ig-stat">
+              <span class="ig-stat-num">37</span>
+              <span class="ig-stat-label">seguidos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ig-name-row">
+          <span class="ig-name">Panadería Flor de Los Magallanes</span>
+          <span class="ig-verified" title="Cuenta verificada">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <a href="https://www.instagram.com/flordelosmagallanes/" target="_blank" rel="noopener" class="ig-handle">@flordelosmagallanes</a>
+        <div class="ig-category">Panadería · Valencia, Venezuela</div>
+        <div class="ig-bio">
+          ¡Trabajamos cada día por una mejor Venezuela — DELIVERY ★<br>
+          <em>Since 1999.</em>
+        </div>
+
+        <div class="ig-actions">
+          <a href="https://wa.me/584244298958" target="_blank" rel="noopener" class="ig-btn ig-btn-primary">Contactar</a>
+          <a href="#productos" class="ig-btn">Productos</a>
+          <a href="https://www.instagram.com/flordelosmagallanes/" target="_blank" rel="noopener" class="ig-btn">Seguir</a>
+        </div>
+
+        <div class="ig-grid">
+          <!-- Mini grid 6 fotos -->
+          <a class="ig-grid-item" href="#galeria"><img src="assets/instagram/post-1.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholder()"></a>
+          <a class="ig-grid-item" href="#galeria"><img src="assets/instagram/post-2.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholder()"></a>
+          <a class="ig-grid-item" href="#galeria"><img src="assets/instagram/post-3.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholder()"></a>
+          <a class="ig-grid-item" href="#galeria"><img src="assets/instagram/post-4.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholder()"></a>
+          <a class="ig-grid-item" href="#galeria"><img src="assets/instagram/post-5.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholder()"></a>
+          <a class="ig-grid-item" href="#galeria"><img src="assets/instagram/post-6.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholder()"></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="sobre" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <img src="assets/instagram/post-2.jpg" alt="Panes artesanales de Flor de Los Magallanes" onerror="this.parentElement.innerHTML='<div class=&quot;about-img-inner&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M4 14c0-3 2-5 4-5s2 1 4 1 2-1 4-1 4 2 4 5v3a2 2 0 01-2 2H6a2 2 0 01-2-2v-3z&quot;/><path d=&quot;M8 9l-1-3&quot;/><path d=&quot;M12 9l0-3&quot;/><path d=&quot;M16 9l1-3&quot;/></svg></div>'">
+      </div>
+      <div class="about-text reveal">
+        <span class="section-tag">Desde 1999</span>
+        <h2 class="section-title">Más de <em>26 años</em> horneando en Valencia</h2>
+        <p>
+          Panadería Flor de Los Magallanes abrió sus puertas en 1999 y desde entonces no ha parado. Almuerzos completos, panes recién horneados, dulces y repostería, pizzas, tortas para celebrar y catering corporativo: todo bajo el mismo techo, hecho con oficio y servido con cariño.
+        </p>
+        <h3>Lo que nos mueve</h3>
+        <p>
+          Cada producto que sale del horno es una pequeña forma de aportar a Venezuela. Trabajamos cada día con la convicción de que servir bien, con calidad y con afecto, también es construir país.
+        </p>
+        <div class="about-pills">
+          <span class="pill">Desde 1999</span>
+          <span class="pill">Valencia, Venezuela</span>
+          <span class="pill">Delivery</span>
+          <span class="pill">Catering corporativo</span>
+          <span class="pill">Atención por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section id="productos" class="products">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Lo que horneamos</span>
+      <h2 class="section-title">Productos <em>recién hechos</em></h2>
+      <p class="section-sub">Pan, dulces y repostería elaborados a diario. Para conocer disponibilidad, presentaciones y precios actualizados, escríbenos por WhatsApp.</p>
+    </div>
+
+    <div class="products-grid stagger">
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="14" rx="8" ry="5"/>
+            <path d="M8 12c.5-1 1-1.5 2-1.5s1.5.5 2 1.5"/>
+            <path d="M14 12c.5-1 1-1.5 2-1.5"/>
+            <path d="M12 9V6"/><path d="M10 5l2-2 2 2"/>
+          </svg>
+        </div>
+        <h3>Panes y golfeados</h3>
+        <p>Pan recién horneado todos los días, golfeados, panes dulces y panadería tradicional venezolana.</p>
+        <span class="product-tag">Disponible a diario</span>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 14h12l-1 6H7l-1-6z"/>
+            <path d="M5 14c0-3 3-6 7-6s7 3 7 6"/>
+            <circle cx="9" cy="11" r=".8"/><circle cx="12" cy="10" r=".8"/><circle cx="15" cy="11" r=".8"/>
+          </svg>
+        </div>
+        <h3>Almuerzos del día</h3>
+        <p>Comida casera lista para llevar: arroz, proteínas, ensaladas, plátano y los acompañamientos del día.</p>
+        <span class="product-tag">Lunes a viernes</span>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18"/><path d="M12 3v18"/>
+            <circle cx="8" cy="9" r=".9"/><circle cx="15" cy="10" r=".9"/><circle cx="10" cy="15" r=".9"/>
+          </svg>
+        </div>
+        <h3>Pizzas</h3>
+        <p>Pizzas recién hechas, masa esponjosa y abundante queso. Para comer en casa o llevar a la oficina.</p>
+        <span class="product-tag">Por encargo</span>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 11c0-3 2.5-5 6-5s6 2 6 5"/>
+            <path d="M5 11h14l-1.5 7H6.5L5 11z"/>
+            <path d="M9 14v2"/><path d="M12 14v2"/><path d="M15 14v2"/>
+          </svg>
+        </div>
+        <h3>Dulces y repostería</h3>
+        <p>Polvorosas, milhojas, pastelitos rellenos, bocadillos dulces y repostería del día para acompañar tu café.</p>
+        <span class="product-tag">Variedades diarias</span>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 17c0-3 3-5 8-5s8 2 8 5v3H4v-3z"/>
+            <path d="M8 12V9c0-1.5 1.5-3 4-3s4 1.5 4 3v3"/>
+            <path d="M12 4v2"/><path d="M11 4l1-1 1 1"/>
+          </svg>
+        </div>
+        <h3>Tortas personalizadas</h3>
+        <p>Tortas para cumpleaños y ocasiones especiales, decoradas a medida con el nombre y el motivo que elijas.</p>
+        <span class="product-tag">Por encargo previo</span>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h13v9H3z"/>
+            <path d="M16 11h4l1 2v4h-5"/>
+            <circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>
+          </svg>
+        </div>
+        <h3>Catering corporativo</h3>
+        <p>Servicio Corpo-Catering para empresas: desayunos, almuerzos, coffee breaks y eventos. Coordinamos por WhatsApp.</p>
+        <span class="product-tag">Para empresas</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:50px" class="reveal">
+      <a href="https://wa.me/584244298958?text=Hola%2C%20quisiera%20saber%20qu%C3%A9%20productos%20tienen%20hoy" target="_blank" rel="noopener" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>
+        Consulta disponibilidad del día
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="galeria" class="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Del horno a tu casa</span>
+      <h2 class="section-title">Galería</h2>
+      <p class="section-sub">Algunos momentos de la panadería: lo que sale del horno, lo que comparten quienes nos visitan, lo que hace que cada día valga la pena.</p>
+    </div>
+
+    <div class="gallery-grid stagger">
+      <div class="gallery-item"><img src="assets/instagram/post-1.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-2.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-3.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-4.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-5.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-6.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-7.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item"><img src="assets/instagram/post-8.jpg" alt="" onerror="this.parentElement.innerHTML=galleryPlaceholderDark()"><div class="gallery-overlay"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METRICS ============ -->
+<section class="metrics">
+  <div class="container">
+    <div class="metrics-grid stagger">
+      <div class="metric">
+        <span class="metric-num"><em>1999</em></span>
+        <span class="metric-label">Año de fundación</span>
+      </div>
+      <div class="metric">
+        <span class="metric-num" data-count="10400" data-suffix="+">0</span>
+        <span class="metric-label">Seguidores en Instagram</span>
+      </div>
+      <div class="metric">
+        <span class="metric-num" data-count="2291" data-format="raw">0</span>
+        <span class="metric-label">Publicaciones</span>
+      </div>
+      <div class="metric">
+        <span class="metric-num"><em>26</em></span>
+        <span class="metric-label">Años horneando en Valencia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">Pide tu pan,<br><em>te respondemos.</em></h2>
+        <p>
+          Lo más rápido es escribirnos por WhatsApp: te contamos qué tenemos hoy, hacemos encargos especiales y resolvemos cualquier duda al instante.
+        </p>
+        <a href="https://wa.me/584244298958?text=Hola%20Flor%20de%20los%20Magallanes%2C%20quisiera%20pedir" target="_blank" rel="noopener" class="whatsapp-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Escribirnos por WhatsApp
+        </a>
+      </div>
+
+      <div class="contact-card reveal">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>
+          </div>
+          <div>
+            <span class="contact-info-label">WhatsApp</span>
+            <a href="https://wa.me/584244298958" target="_blank" rel="noopener" class="contact-info-value">+58 424-4298958</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div>
+            <span class="contact-info-label">Instagram</span>
+            <a href="https://www.instagram.com/flordelosmagallanes/" target="_blank" rel="noopener" class="contact-info-value">@flordelosmagallanes</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <span class="contact-info-label">Ubicación</span>
+            <span class="contact-info-value">Valencia, Venezuela</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand">Panadería Flor de Los Magallanes</div>
+  <div class="footer-tag">Trabajamos cada día por una mejor Venezuela</div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/flordelosmagallanes/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://wa.me/584244298958" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>
+    </a>
+  </div>
+  <div class="footer-copy">© <span id="year"></span> Panadería Flor de Los Magallanes · Venezuela · Hecho con cariño</div>
+</footer>
+
+<!-- WhatsApp floating -->
+<a href="https://wa.me/584244298958" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Avatar fallback if profile.jpg doesn't exist
+(function(){
+  var img = new Image();
+  img.onload = function(){
+    document.getElementById('avatar-fallback').style.display='none';
+  };
+  img.onerror = function(){
+    var el = document.getElementById('avatar-img');
+    if(el) el.style.backgroundImage = 'none';
+  };
+  img.src = 'assets/instagram/profile.jpg';
+})();
+
+// Placeholder helpers (called via inline onerror)
+window.galleryPlaceholder = function(){
+  return '<div class="ig-grid-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5"/><path d="M8 12c.5-1 1-1.5 2-1.5s1.5.5 2 1.5"/><path d="M14 12c.5-1 1-1.5 2-1.5"/><path d="M12 9V6"/></svg></div>';
+};
+window.galleryPlaceholderDark = function(){
+  return '<div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5"/><path d="M8 12c.5-1 1-1.5 2-1.5s1.5.5 2 1.5"/><path d="M14 12c.5-1 1-1.5 2-1.5"/><path d="M12 9V6"/></svg></div><div class="gallery-overlay"></div>';
+};
+
+// About image fallback to decorative
+(function(){
+  // already shows the SVG; nothing to do unless real photo exists
+})();
+
+// Nav scroll
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Hero in (immediate)
+window.addEventListener('load', function(){
+  document.querySelectorAll('.hero-text, .ig-card-wrap').forEach(function(el){
+    requestAnimationFrame(function(){ el.classList.add('in'); });
+  });
+});
+
+// Intersection observer for reveal & stagger
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      // Counter trigger
+      e.target.querySelectorAll('[data-count]').forEach(function(el){
+        if(!el.dataset.done){
+          el.dataset.done = '1';
+          animateCount(el);
+        }
+      });
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.18, rootMargin:'0px 0px -10% 0px'});
+
+document.querySelectorAll('.reveal, .stagger').forEach(function(el){ io.observe(el); });
+document.querySelectorAll('.metrics-grid').forEach(function(el){ io.observe(el); });
+
+// Counter animation
+function animateCount(el){
+  var target = parseInt(el.dataset.count, 10);
+  var suffix = el.dataset.suffix || '';
+  var format = el.dataset.format || 'auto';
+  var dur = 1800;
+  var start = performance.now();
+  function frame(t){
+    var p = Math.min(1, (t - start)/dur);
+    var eased = 1 - Math.pow(1 - p, 3);
+    var val = Math.floor(eased * target);
+    var formatted;
+    if(format === 'raw'){
+      formatted = val.toLocaleString('es-VE');
+    } else if(target >= 1000) {
+      formatted = (val/1000).toFixed(1).replace(/\.0$/,'') + 'K';
+    } else {
+      formatted = val;
+    }
+    el.textContent = formatted + suffix;
+    if(p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+// Smooth nav close on link click (mobile placeholder)
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = a.getAttribute('href');
+    if(id === '#') return;
+    var target = document.querySelector(id);
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>
